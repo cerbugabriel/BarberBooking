@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,6 +33,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dmax.dialog.SpotsDialog;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -43,6 +45,8 @@ public class HomeActivity extends AppCompatActivity {
 
     CollectionReference userRef;
 
+    AlertDialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +55,7 @@ public class HomeActivity extends AppCompatActivity {
 
         //Init
         userRef = FirebaseFirestore.getInstance().collection("User");
+        dialog = new SpotsDialog.Builder().setContext(this).setCancelable(false).build();
 
         // Verificare logare, daca exista -> full access
         // Altfel vizionare magazin
@@ -60,6 +65,7 @@ public class HomeActivity extends AppCompatActivity {
             boolean isLogin = getIntent().getBooleanExtra(Common.IS_LOGIN,false);
             if(isLogin)
             {
+                dialog.show();
                 //Verificare daca exista user in Firebase
                 AccountKit.getCurrentAccount(new AccountKitCallback<Account>() {
                     @Override
@@ -75,9 +81,12 @@ public class HomeActivity extends AppCompatActivity {
                                             {
                                                 DocumentSnapshot userSnapShot = task.getResult();
                                                 if(!userSnapShot.exists())
-                                                {
+                                                {   if(dialog.isShowing())
+                                                    dialog.dismiss();
                                                     showUpdateDialog(account.getPhoneNumber().toString());
                                                 }
+                                                if(dialog.isShowing())
+                                                    dialog.dismiss();
                                             }
                                         }
                                     });
@@ -109,6 +118,8 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        bottomNavigationView.setSelectedItemId(R.id.action_home);
+
     }
 
     private boolean loadFragment(Fragment fragment) {
@@ -122,8 +133,13 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void showUpdateDialog(String phoneNumber) {
+
+        if(dialog.isShowing())
+            dialog.dismiss();
+
         //Dialog Initial
         bottomSheetDialog = new BottomSheetDialog(this);
+        bottomSheetDialog.setTitle("Aproape Gata!");
         bottomSheetDialog.setCanceledOnTouchOutside(false);
         bottomSheetDialog.setCancelable(false);
         View sheetView = getLayoutInflater().inflate(R.layout.layout_update_information,null);
@@ -135,6 +151,8 @@ public class HomeActivity extends AppCompatActivity {
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(dialog.isShowing())
+                    dialog.dismiss();
                 User user = new User(edt_name.getText().toString(),edt_address.getText().toString(),phoneNumber);
                 userRef.document(phoneNumber)
                         .set(user)
@@ -142,12 +160,16 @@ public class HomeActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 bottomSheetDialog.dismiss();
+                                if(dialog.isShowing())
+                                    dialog.dismiss();
                                 Toast.makeText(HomeActivity.this,"Multumesc",Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         bottomSheetDialog.dismiss();
+                        if(dialog.isShowing())
+                            dialog.dismiss();
                         Toast.makeText(HomeActivity.this,""+e.getMessage(),Toast.LENGTH_SHORT).show();
                     }
                 });
