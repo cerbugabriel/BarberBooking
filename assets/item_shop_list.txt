@@ -1,0 +1,59 @@
+//Wax
+name = Wax Colonna Hair Mud
+image = https://product.hstatic.net/1000306701/product/sap-colona-30shine1_master.jpg
+price = 25
+
+name = Wax Colonna Hair Mud
+image = https://product.hstatic.net/1000306701/product/sap-colona-30shine1_master.jpg
+price = 25
+
+name = Wax By Vilain Dynamite Clay
+image = https://product.hstatic.net/1000306701/product/42_master.jpg
+price = 25
+
+name = Wax By Vilain Gold Digger
+image = https://product.hstatic.net/1000306701/product/goldigger_master.jpg
+price = 25
+
+name = Wax Glanzen Clay
+image = https://product.hstatic.net/1000306701/product/glazen_tag_master.jpg
+price = 25
+
+name = Wax Kevin Murphy - Rough Rider
+image = https://product.hstatic.net/1000306701/product/5_95461894759842e3839bf71fa8b3be7b_master.jpg
+price = 30
+
+name = Wax Morris Motley
+image = https://product.hstatic.net/1000306701/product/6_8c53296c9e584436bb61f079515d3930_master.jpg
+price = 40
+
+name = Wax Morris Motley Balm
+image = https://product.hstatic.net/1000306701/product/1_9c57f1e58cda4d94b6681df8f67cfdea_master.jpg
+price = 40
+
+//Spray
+name = BRITISH M Hard Tailor Spray 
+image = https://product.hstatic.net/1000306701/product/g_m00_master.jpg
+price = 30
+
+name = Colonna Spray
+image = https://product.hstatic.net/1000306701/product/p1411484_master.jpg
+price = 20
+
+name = Spray Lady Killer
+image = https://product.hstatic.net/1000306701/product/9_master.jpg
+price = 30
+
+name = Spray R&B
+price = https://product.hstatic.net/1000306701/product/10_87d53831c1594e1584ca0f1fd791d46d_master.jpg
+price = 10
+
+name = Spray TIGI RK Groupie Hard Hold
+image = https://product.hstatic.net/1000306701/product/groupie_master.jpg
+price = 15
+
+name = Spray TIGI BED HEAD HARD HEAD
+image = https://product.hstatic.net/1000306701/product/bed_head_c0e8619915fa4ddea2f44bc550fec7f4_master.jpg
+price = 25
+
+
