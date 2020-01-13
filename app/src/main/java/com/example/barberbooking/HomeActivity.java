@@ -81,9 +81,13 @@ public class HomeActivity extends AppCompatActivity {
                                             {
                                                 DocumentSnapshot userSnapShot = task.getResult();
                                                 if(!userSnapShot.exists())
-                                                {   if(dialog.isShowing())
-                                                    dialog.dismiss();
+                                                {
                                                     showUpdateDialog(account.getPhoneNumber().toString());
+                                                }
+                                                else {
+                                                    //Daca Utilizatorul exista
+                                                    Common.currentUser = userSnapShot.toObject(User.class);
+                                                    bottomNavigationView.setSelectedItemId(R.id.action_home);
                                                 }
                                                 if(dialog.isShowing())
                                                     dialog.dismiss();
@@ -118,7 +122,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        bottomNavigationView.setSelectedItemId(R.id.action_home);
+
 
     }
 
@@ -134,8 +138,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private void showUpdateDialog(String phoneNumber) {
 
-        if(dialog.isShowing())
-            dialog.dismiss();
+
 
         //Dialog Initial
         bottomSheetDialog = new BottomSheetDialog(this);
@@ -162,6 +165,9 @@ public class HomeActivity extends AppCompatActivity {
                                 bottomSheetDialog.dismiss();
                                 if(dialog.isShowing())
                                     dialog.dismiss();
+                                Common.currentUser = user;
+                                bottomNavigationView.setSelectedItemId(R.id.action_home);
+
                                 Toast.makeText(HomeActivity.this,"Multumesc",Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {

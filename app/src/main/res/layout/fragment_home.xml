@@ -1,14 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/homeBackround"
+    android:orientation="vertical"
     tools:context=".Fragments.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:id="@+id/layout_user_information"
+        android:visibility="gone"
+        android:weightSum="4"
+        android:padding="8dp"
+        android:background="@color/colorButton">
+
+
+      <ImageView
+          android:src="@drawable/ic_account_circle_black_24dp"
+          android:layout_width="60dp"
+          android:layout_height="60dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:textSize="22sp"
+                android:id="@+id/txt_user_name"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:id="@+id/txt_member_type"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:padding="8dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:cardCornerRadius="8dp"
+            android:id="@+id/card_view_booking">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_event_note_black_24dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rezervare"
+                    android:fontFamily="@font/bellerose"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/textCardSize"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:cardCornerRadius="8dp"
+            android:id="@+id/card_view_cart">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_shopping_cart_black_24dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cos"
+                    android:fontFamily="@font/bellerose"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/textCardSize"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:cardCornerRadius="8dp"
+            android:id="@+id/card_view_history">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_history_black_24dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Istoric"
+                    android:fontFamily="@font/bellerose"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/textCardSize"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="8dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:cardCornerRadius="8dp"
+            android:id="@+id/card_view_notification">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_notifications_black_24dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notificari"
+                    android:fontFamily="@font/bellerose"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/textCardSize"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Home Fragment" />
+        android:padding="8dp"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <ss.com.bannerslider.Slider
+            android:id="@+id/banner_slider"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:text="Stiluri"
+                android:fontFamily="@font/bellerose"
+                android:textColor="@color/colorButton"
+                android:textSize="18sp"/>
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recycler_look_book"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"/>
+
+    </LinearLayout>
+
+</LinearLayout>
