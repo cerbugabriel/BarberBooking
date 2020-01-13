@@ -49,7 +49,7 @@ public class LookbookAdapter extends RecyclerView.Adapter<LookbookAdapter.MyView
         public  MyViewHolder(@NonNull View itemView){
             super(itemView);
 
-            itemView = (ImageView)itemView.findViewById(R.id.image_look_book);
+            imageView = (ImageView)itemView.findViewById(R.id.image_look_book);
         }
     }
 }

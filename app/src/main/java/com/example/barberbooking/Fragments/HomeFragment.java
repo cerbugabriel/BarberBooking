@@ -87,13 +87,13 @@ public class HomeFragment extends Fragment implements ILookbookLoadListener, IBa
         {
             setUserInformation();
             loadBanner();
-            loadLookbook();
+            loadLookBook();
         }
 
         return view;
     }
 
-    private void loadLookbook() {
+    private void loadLookBook() {
         lookbookRef.get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -103,10 +103,10 @@ public class HomeFragment extends Fragment implements ILookbookLoadListener, IBa
                         {
                             for(QueryDocumentSnapshot bannerSnapShot:task.getResult())
                             {
-                                Banner lookbook = bannerSnapShot.toObject(Banner.class);
-                                lookbooks.add(lookbook);
+                                Banner banner = bannerSnapShot.toObject(Banner.class);
+                                lookbooks.add(banner);
                             }
-                            iBannerLoadListener.onBannerLoadSuccess(lookbooks);
+                            iLookbookLoadListener.onLookbookLoadSuccess(lookbooks);
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
