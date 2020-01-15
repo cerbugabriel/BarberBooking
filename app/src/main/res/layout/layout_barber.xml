@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="4dp"
-    android:id="@+id/card_salon"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,27 +13,28 @@
         android:padding="16dp"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:id="@+id/txt_salon_name"
+            android:src="@drawable/ic_account_circle_black_24dp"
+            android:layout_gravity="center_horizontal" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txt_salon_name"
+            android:id="@+id/txt_barber_name"
+            android:text="David"
             android:textSize="20sp"
             android:textStyle="bold"
             android:fontFamily="@font/bellerose"
-            android:text="Salon #1"
-            android:gravity="center_horizontal"
-            />
-        <TextView
-            android:layout_width="match_parent"
+            android:gravity="center_horizontal"/>
+        <RatingBar
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txt_salon_address"
-            android:text="Adresa salon 1"
-            android:textStyle="italic"
-            android:fontFamily="@font/bellerose"
-            android:textSize="16sp"
-            android:gravity="center_horizontal"
-            />
+            android:id="@+id/rtb_barber"
+            android:max="5"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>

@@ -27,7 +27,7 @@
 
         app:sv_typeface="@font/bellerose"/>
 
-    <androidx.viewpager.widget.ViewPager
+    <com.example.barberbooking.Common.NonSwipeViewPager
         android:id="@+id/view_pager"
         android:layout_above="@+id/layout_button"
         android:layout_below="@+id/step_view"
@@ -68,6 +68,7 @@
             android:layout_weight="1"
             android:background="@color/colorButton"
             android:fontFamily="@font/bellerose"
+            android:enabled="false"
             android:text="Next"
             android:textColor="@android:color/white" />
 
