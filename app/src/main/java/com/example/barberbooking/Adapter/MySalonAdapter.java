@@ -62,6 +62,7 @@ public class MySalonAdapter extends RecyclerView.Adapter<MySalonAdapter.MyViewHo
                 //Trimitere Broadcast catre BookingActivity pentru activarea butonului Next
                 Intent intent = new Intent(Common.KEY_ENABLE_BUTTON_NEXY);
                 intent.putExtra(Common.KEY_SALON_STORE,salonList.get(pos));
+                intent.putExtra(Common.KEY_STEP,1);
                 localBroadcastManager.sendBroadcast(intent);
             }
         });
