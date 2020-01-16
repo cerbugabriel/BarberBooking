@@ -18,14 +18,10 @@ public class MyViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position)
         {
-            case 0:
-                return BookingStep1Fragment.getInstance();
-            case 1:
-                return BookingStep2Fragment.getInstance();
-            case 2:
-                return BookingStep3Fragment.getInstance();
-            case 3:
-                return BookingStep4Fragment.getInstance();
+            case 0: return BookingStep1Fragment.getInstance();
+            case 1: return BookingStep2Fragment.getInstance();
+            case 2: return BookingStep3Fragment.getInstance();
+            case 3: return BookingStep4Fragment.getInstance();
         }
         return null;
     }
